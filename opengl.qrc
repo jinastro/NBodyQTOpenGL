@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>shaders/vertexShader.vert</file>
+        <file>shaders/fragmentShader.frag</file>
+        <file>img/openGL.svg</file>
+    </qresource>
+</RCC>
