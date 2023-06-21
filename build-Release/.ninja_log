@@ -1,0 +1,16 @@
+# ninja log v5
+0	257	1687341598208962180	QtOpenGLNBody_autogen/timestamp	d50b3344dbc76df
+0	257	1687341598208962180	QtOpenGLNBody_autogen/mocs_compilation.cpp	d50b3344dbc76df
+0	257	1687341598208962180	/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/QtOpenGLNBody_autogen/timestamp	d50b3344dbc76df
+0	257	1687341598208962180	/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/QtOpenGLNBody_autogen/mocs_compilation.cpp	d50b3344dbc76df
+257	261	1687341598212962176	QtOpenGLNBody_autogen/EWIEGA46WW/qrc_opengl.cpp	bbbf6a2e2e9d818
+257	261	1687341598212962176	/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/QtOpenGLNBody_autogen/EWIEGA46WW/qrc_opengl.cpp	bbbf6a2e2e9d818
+261	287	1687341598240962141	CMakeFiles/QtOpenGLNBody.dir/constant.cpp.o	96348c729bdb9f72
+262	322	1687341598276962097	CMakeFiles/QtOpenGLNBody.dir/QtOpenGLNBody_autogen/EWIEGA46WW/qrc_opengl.cpp.o	3d2512b8c9fb14ac
+262	726	1687341598676961599	CMakeFiles/QtOpenGLNBody.dir/point.cpp.o	96b9b4c8e987f017
+261	1002	1687341598956961252	CMakeFiles/QtOpenGLNBody.dir/nbodycalculate.cpp.o	65f5a6489aad3b5
+261	1824	1687341599776960239	CMakeFiles/QtOpenGLNBody.dir/main.cpp.o	adead3295d4554a2
+261	2166	1687341600120959816	CMakeFiles/QtOpenGLNBody.dir/opengl.cpp.o	5faaece299945e6a
+261	2210	1687341600164959762	CMakeFiles/QtOpenGLNBody.dir/mainwindow.cpp.o	16db8d1800c9a010
+261	2254	1687341600208959707	CMakeFiles/QtOpenGLNBody.dir/QtOpenGLNBody_autogen/mocs_compilation.cpp.o	758ecf259cdf78c4
+2254	2595	1687341600544959296	QtOpenGLNBody	b04c873d6fc0cda7

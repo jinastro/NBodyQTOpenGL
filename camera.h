@@ -23,7 +23,7 @@ enum Camera_Movement {
 //const float SENSITIVITY =  0.1f;// 摄像机 视角旋转的灵敏度
 //const float ZOOM        =  45.0f;// 摄像机 拉进视角的快慢
 const float YAW         = -90.0f; // 偏航角 也就是摄像机左右的角度
-const float PITCH       =  50.0f; // 俯仰角  也就是摄像机抬头或者低将头 不知道为什么 设置为 0.0 会无法绘制第一张图
+const float PITCH       =  70.0f; // 俯仰角  也就是摄像机抬头或者低将头 不知道为什么 设置为 0.0 会无法绘制第一张图
 const float SPEED       =  2.5f;//摄像机 前进后退 左右移动的速度
 const float SENSITIVITY =  0.1f;// 摄像机 视角旋转的灵敏度
 const float ZOOM        =  45.0f;// 摄像机 拉进视角的快慢
@@ -103,10 +103,14 @@ public:
         // make sure that when pitch is out of bounds, screen doesn't get flipped
         if (constrainPitch)
         {
-            if (Pitch > 89.0f)
-                Pitch = 89.0f;
-            if (Pitch < -89.0f)
-                Pitch = -89.0f;
+//            if (Pitch > 89.0f)
+//                Pitch = 89.0f;
+//            if (Pitch < -89.0f)
+//                Pitch = -89.0f;
+            if (Pitch > 89.99f)
+                Pitch = 89.99f;
+            if (Pitch < -89.99f)
+                Pitch = -89.99f;
         }
 
         // update Front, Right and Up Vectors using the updated Euler angles

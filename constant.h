@@ -2,7 +2,7 @@
 #define CONSTANT_H
 
 namespace constant {
-  const double G = 5.0;
+  const double G = 10.0;
 }
 
 

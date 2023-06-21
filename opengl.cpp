@@ -5,6 +5,8 @@
 #include<GL/glut.h>
 #include<point.h>
 #include<nbodycalculate.h>
+#include<fstream>
+#include<my_time.h>
 
 
 opengl::opengl(QWidget *parent)
@@ -19,13 +21,38 @@ opengl::opengl(QWidget *parent)
     timer->setInterval(1);
 
 
-    camera.Position = QVector3D(0,-3500,2500);      //相机的初始位置
-    camera.Yaw = -90.0f;                               // 偏航角 也就是摄像机左右的角度
-//    camera.Pitch = 50.0f;                              // 俯仰角  也就是摄像机抬头或者低将头
-    camera.MovementSpeed = 10000.0f;                    //摄像机 前进后退 左右移动的速度
-    camera.MouseSensitivity = 0.1f;                  // 摄像机 视角旋转的灵敏度
-    camera.Zoom = 45.0f;                               // 摄像机 拉进视角的快慢
 
+
+//    std::ofstream output("../test.csv");
+//    for (auto &i :data ) {
+//        output << i ;
+//    }
+//    output.close();
+
+    std::ifstream input("../data.csv");
+    Point p;
+    while (input >> p) {
+        init_data.push_back(p);
+    }
+    input.close();
+    data = init_data;
+
+    camera_init();
+
+
+//    {
+//        my_time::Timer t;
+//        for ( int i = 0 ; i < 1 ; ++i ) {
+//          std::cout << nbody::rdist({0,0,0},{1,1,1})<< std::endl;
+//        }
+//    }
+
+//    {
+//        my_time::Timer t;
+//        for ( int i = 0 ; i < 1 ; ++i ) {
+//          std::cout << 1/nbody::dist({0,0,0},{1,1,1})<< std::endl;
+//        }
+//    }
 
 }
 
@@ -34,18 +61,25 @@ opengl::~opengl()
 
 }
 
+void opengl::camera_init(){
+    camera.Position = QVector3D(0,-4000,1200);      //相机的初始位置
+    camera.Yaw = -90.0f;                               // 偏航角 也就是摄像机左右的角度
+    camera.Pitch = 70.0f;                              // 俯仰角  也就是摄像机抬头或者低将头
+    camera.MovementSpeed = 10000.0f;                    //摄像机 前进后退 左右移动的速度
+    camera.MouseSensitivity = 0.1f;                  // 摄像机 视角旋转的灵敏度
+    camera.Zoom = 45.0f;                               // 摄像机 拉进视角的快慢
+}
+
 void opengl::timeout()
 {
-    for (auto i=0;i< 50 ; i++ ) {
+    for (auto i=0;i< 25 ; i++ ) {
       nbody::update(data,nbody::DT);
     }
-
     update();//用于触发 paintGL
 }
 
 void opengl::startSimulation()
 {
-    qDebug() << "startSimulation";
     timer->start();
 }
 
@@ -56,16 +90,18 @@ void opengl::stopSimulation()
 
 void opengl::resetSimulation()
 {
-    data=nbody::testdata;
+//    data=nbody::testdata;
+    data=init_data;
     timer->stop();
 
+    camera_init();
     update();
 }
 
 void opengl::initializeGL()
 {
     initializeOpenGLFunctions();
-    glClearColor(0.2f,0.2f,0.25f,1.0f);
+    glClearColor(0.1f,0.1f,0.2f,1.0f);
     glEnable(GL_DEPTH_TEST);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  //清理颜色和深度缓存
 }
@@ -102,6 +138,7 @@ void opengl::paintGL()
     //绘制图形
     drawGrid(1400,10);
     paintAster(data);
+//    paintPoints(data);
 
 //    glFlush(将);
 
@@ -156,12 +193,21 @@ void opengl::wheelEvent(QWheelEvent *event)
 }
 
 
+void opengl::paintPoints(std::vector<Point> &v){
+    GLfloat pointSize = 3.0f;
+    glPointSize(pointSize);
+    glBegin(GL_POINTS);
+    for (auto const & p : v ) {
+        glVertex3d(p.x, p.y, p.z);
+    }
+    glEnd();
+}
 
-void opengl::paintStar(GLfloat x, GLfloat y, GLfloat z){
+void opengl::paintStar(GLfloat x, GLfloat y, GLfloat z,GLfloat size){
 
 
             // 定义太阳光源，它是一种白色的光源
-            GLfloat sun_light_position[] = {0.0f, 0.0f, 0.0f, 1.0f}; //光源的位置在世界坐标系圆心，齐次坐标形式
+            GLfloat sun_light_position[] = {1000.0f, -3000.0f, 1000.0f, 1.0f}; //光源的位置在世界坐标系圆心，齐次坐标形式
             GLfloat sun_light_ambient[]   = {0.0f, 0.0f, 0.0f, 1.0f}; //RGBA模式的环境光，为0
             GLfloat sun_light_diffuse[]   = {1.0f, 1.0f, 1.0f, 1.0f}; //RGBA模式的漫反射光，全白光
             GLfloat sun_light_specular[] = {1.0f, 1.0f, 1.0f, 1.0f};  //RGBA模式下的镜面光 ，全白光
@@ -190,16 +236,16 @@ void opengl::paintStar(GLfloat x, GLfloat y, GLfloat z){
 
 
             glTranslatef(x, y, z);
-            glutSolidSphere(100.0, 40, 32);
+            glutSolidSphere(size, 40, 32);
             glTranslatef(-x,-y,-z); //复位
 
 
 }
 
-void opengl::paintPlanet(GLfloat x, GLfloat y, GLfloat z)
+void opengl::paintPlanet(GLfloat x, GLfloat y, GLfloat z, GLfloat size)
 {
-        GLfloat earth_mat_ambient[]   = {1.0f, 1.0f, 1.0f, 0.5f};  //定义材质的环境光颜色，蓝色
-        GLfloat earth_mat_diffuse[]   = {0.5f, 0.5f, 0.5f, 1.0f};  //定义材质的漫反射光颜色，蓝色
+        GLfloat earth_mat_ambient[]   = {0.0f, 1.0f, 0.0f, 1.0f};  //定义材质的环境光颜色，蓝色
+        GLfloat earth_mat_diffuse[]   = {1.0f, 1.0f, 1.0f, 1.0f};  //定义材质的漫反射光颜色，蓝色
         GLfloat earth_mat_specular[] = {1.0f, 1.0f, 1.0f, 1.0f};   //定义材质的镜面反射光颜色，红色
         GLfloat earth_mat_emission[] = {.2f, .2f, .5f, 1.0f};   //定义材质的辐射光颜色，为0
         GLfloat earth_mat_shininess   = 30.0f;
@@ -212,18 +258,25 @@ void opengl::paintPlanet(GLfloat x, GLfloat y, GLfloat z)
 
 //        glLoadIdentity();
         glTranslatef(x, y, z);
-        glutSolidSphere(30.0, 40, 32);
+        glutSolidSphere(size, 40, 32);
         glTranslatef(-x,-y,-z); //复位
 
 }
 
 
 void opengl::paintAster(std::vector<Point> & v){
+    paintStar(0,0,0,0);
+    for(auto it = v.begin(); it!=v.end();it++){
+        paintPlanet(it->x,it->y,it->z,20);
+    }
+}
+
+void opengl::paintSolarSystem(std::vector<Point> & v){
     for(auto it = v.begin(); it!=v.begin()+1;it++){
-        paintStar(it->x,it->y,it->z);
+        paintStar(it->x,it->y,it->z,30);
     }
     for(auto it = v.begin()+1; it!=v.end();it++){
-        paintPlanet(it->x,it->y,it->z);
+        paintPlanet(it->x,it->y,it->z,20);
     }
 }
 

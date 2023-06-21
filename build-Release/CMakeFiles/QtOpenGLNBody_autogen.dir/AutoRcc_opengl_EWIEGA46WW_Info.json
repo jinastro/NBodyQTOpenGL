@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/QtOpenGLNBody_autogen",
+	"CMAKE_BINARY_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody",
+	"CMAKE_SOURCE_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody",
+	"INCLUDE_DIR" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/QtOpenGLNBody_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/qinjin/C++/图形/QtOpenGLNBody/shaders/fragmentShader.frag",
+		"/home/qinjin/C++/图形/QtOpenGLNBody/shaders/vertexShader.vert",
+		"/home/qinjin/C++/图形/QtOpenGLNBody/img/openGL.svg"
+	],
+	"LOCK_FILE" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/QtOpenGLNBody_autogen.dir/AutoRcc_opengl_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "opengl" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_opengl.cpp",
+	"RCC_EXECUTABLE" : "/home/qinjin/Qt/6.2.3/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/QtOpenGLNBody_autogen.dir/AutoRcc_opengl_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/qinjin/C++/图形/QtOpenGLNBody/opengl.qrc",
+	"VERBOSITY" : 0
+}

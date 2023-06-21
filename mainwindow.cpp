@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actStart, &QAction::triggered,this,[=](){
         ui->openGLWidget->startSimulation();
-        qDebug() << "sattt";
     });
 
     connect(ui->actStop, &QAction::triggered,this,[=](){

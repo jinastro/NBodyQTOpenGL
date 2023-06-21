@@ -22,15 +22,19 @@ public:
     explicit opengl(QWidget *parent = nullptr);
     ~opengl();
 
-    std::vector<Point> data = nbody::testdata;
+    std::vector<Point> init_data;
+    std::vector<Point> data;
     void startSimulation();
     void stopSimulation();
     void resetSimulation();
 
-    void paintStar(GLfloat x, GLfloat y, GLfloat z);
-    void paintPlanet(GLfloat x, GLfloat y, GLfloat z);
+    void paintStar(GLfloat x, GLfloat y, GLfloat z, GLfloat size);
+    void paintPlanet(GLfloat x, GLfloat y, GLfloat z, GLfloat size);
     void paintAster(std::vector<Point> & v);
+    void paintSolarSystem(std::vector<Point> & v);
+    void paintPoints(std::vector<Point> &v);
     void drawGrid(qreal size, int nbSubdivisions);
+    void camera_init();
 
 protected:
     virtual void initializeGL();

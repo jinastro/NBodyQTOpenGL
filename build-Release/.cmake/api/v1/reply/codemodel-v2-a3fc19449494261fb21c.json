@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "QtOpenGLNBody",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "QtOpenGLNBody::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QtOpenGLNBody-Release-cb5d367bd0ad2a362e73.json",
+					"name" : "QtOpenGLNBody",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QtOpenGLNBody_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QtOpenGLNBody_autogen-Release-5b16a8f27e8208a0fd35.json",
+					"name" : "QtOpenGLNBody_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QtOpenGLNBody_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QtOpenGLNBody_autogen_timestamp_deps-Release-6aabc2c254368453e311.json",
+					"name" : "QtOpenGLNBody_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/qinjin/C++/图形/QtOpenGLNBody/build-Release",
+		"source" : "/home/qinjin/C++/图形/QtOpenGLNBody"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

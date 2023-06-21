@@ -1,0 +1,5 @@
+/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/rebuild_cache.dir
+/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/edit_cache.dir
+/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/QtOpenGLNBody.dir
+/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/QtOpenGLNBody_autogen_timestamp_deps.dir
+/home/qinjin/C++/图形/QtOpenGLNBody/build-Release/CMakeFiles/QtOpenGLNBody_autogen.dir
